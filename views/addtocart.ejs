@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Product</title>
+
+    <style>
+        /* Internal CSS stylesheet */
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        th {
+            background-color: #fae610;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table>
+        <thead>
+
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            <% var count=0%>
+                <% results.forEach((result)=>{ %>
+                    <tr>
+                        <td>
+                            <%=result.user%>
+                        </td>
+
+                        <td>
+                            <%=result.name%>
+                        </td>
+                        <td>
+
+
+                            <%=result.p_id%>
+                        </td>
+
+                        <td>
+                            <%=result.time%>
+                        </td>
+
+                        <td>
+                            <%=result.price%>
+                                <%count=count+result.price%>
+                        </td>
+
+                        <td>
+                            <a href="/api/deletecartProduct/<%=result.id%>"><button> Delete</button></a>
+                        </td>
+
+
+                    </tr>
+
+
+                    <%})%>
+
+
+
+        </tbody>
+
+    </table>
+
+    <h1>
+        Grand Total
+        <%=count%>
+    </h1>
+
+    <a href="/checkout/allcart"><button>Buy Now</button></a>
+
+</body>
+
+</html>
